@@ -1,5 +1,6 @@
 import checked.DivideByZeroException;
 import checked.LessThanException;
+import pkg.Calculator;
 
 import java.util.Scanner;
 
@@ -14,7 +15,7 @@ public class Main {
         double result;
         System.out.println("Applying Check Exceptions....");
         try{
-            result = calculator.divisionUsingCheckedException();
+            result = (double) calculator.divisionUsingCheckedException();
             System.out.println("Result is " + result);
         } catch (DivideByZeroException | LessThanException e) {
             System.out.println(e.getMessage());
@@ -22,13 +23,11 @@ public class Main {
 
         System.out.println("Applying Uncheck Exceptions....");
         try {
-            result = calculator.divisionUsingUncheckedException();
+            result = (double) calculator.divisionUsingUncheckedException();
             System.out.println("Result is " + result);
         } catch (unchecked.DivideByZeroException e) {
             System.out.println(e.getMessage());
         }
-
-
     }
 }
 
