@@ -1,7 +1,7 @@
 package pkg;
 
 import checked.LessThanException;
-import checked.DivideByZeroException;
+import unchecked.DivideByZeroException;
 
 public class Calculator {
     private int x;
@@ -23,28 +23,16 @@ public class Calculator {
         this.y = y;
     }
 
-    public int divisionUsingCheckedException() throws DivideByZeroException, LessThanException {
-        if(x < 10) {
-            throw new LessThanException("Numerator cannot be less than 10");
-        }
-        if(y == 0) {
-            throw new DivideByZeroException("Denominator cannot be zero!");
-        }
-        return x/y;
-    }
-
-    public int divisionUsingUncheckedException(){
-        int result = 0;
+    public int division() throws LessThanException {
+        int res;
         try {
             if(x < 10) {
-                throw new LessThanException("Numerator cannot be less than 10");
+                throw new LessThanException("Numerator should not be less than 10");
             }
-            result = x/y;
-        } catch (unchecked.DivideByZeroException e) {
-            throw new unchecked.DivideByZeroException("Denominator should not be zero! in unchecked");
-        } catch (LessThanException e) {
-            System.out.println(e.getMessage());
+            res = x/y;
+        } catch (DivideByZeroException e) {
+            throw new DivideByZeroException("Denominator should not be zero! in unchecked");
         }
-        return result;
+        return res;
     }
 }
