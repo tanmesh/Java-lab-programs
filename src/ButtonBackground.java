@@ -1,4 +1,3 @@
-package sixsem;
 import java.applet.*;
 import java.awt.*;
 import java.awt.event.*;
